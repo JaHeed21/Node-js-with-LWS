@@ -1,9 +1,7 @@
 const url = require("url");
-const http = require("http");
-const PORT = process.env.PORT || 3000;
-const homeHandler = require("./routes/home");
-const aboutHandler = require("./routes/about");
-const indexHandler = require("./routes/indexpage");
+const homeHandler = require("./home");
+const aboutHandler = require("./about");
+const indexHandler = require("./indexpage")
 
 const routes = {
   "/": {
@@ -42,8 +40,4 @@ function handleRequest(req, res) {
   res.end("Not found");
 }
 
-const server = http.createServer(handleRequest);
-
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+module.exports = handleRequest;
